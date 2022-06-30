@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 from bokeh.io import output_file, show
 from bokeh.models import WheelZoomTool, HoverTool, ResetTool, SaveTool
-from bokeh.models import Circle, MultiLine, Plot, Range1d, NodesAndLinkedEdges, MultiLine
+from bokeh.models import Circle, MultiLine, Plot, Range1d, NodesAndLinkedEdges
 from bokeh.models import Legend, LegendItem
 from bokeh.palettes import Spectral10
 from bokeh.plotting import from_networkx
@@ -99,7 +99,7 @@ plot.add_tools(node_hover_tool, WheelZoomTool(), ResetTool(), SaveTool())
 graph_renderer = from_networkx(barrio, nx.spring_layout, scale=1, center=(0, 0))
 graph_renderer.node_renderer.glyph = Circle(size=25, fill_color="color")
 graph_renderer.edge_renderer.glyph = MultiLine(line_color="color", line_alpha=0.8, line_width=5)
-graph_renderer.selection_policy = NodesAndLinkedEdges()
+#graph_renderer.selection_policy = NodesAndLinkedEdges()
 plot.renderers.append(graph_renderer)
 
 leyenda = Legend(items=[LegendItem(label="Esquina", renderers=[graph_renderer.node_renderer]),
